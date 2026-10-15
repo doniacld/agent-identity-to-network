@@ -1,0 +1,10 @@
+2026-10-08T14:21:11.880Z  actor=otel-alpha  GET 10.96.169.253:80   via 10.244.0.116:39138     status=200 verdict-at-gateway=allowed
+2026-10-08T14:21:11.967Z  actor=otel-beta   GET 10.96.167.15:80    via 10.244.0.116:54866     status=200 verdict-at-gateway=allowed
+2026-10-08T14:21:13.041Z  actor=otel-alpha  GET 10.96.169.253:80   via 10.244.0.116:39138     status=200 verdict-at-gateway=allowed
+2026-10-08T14:21:13.085Z  actor=otel-beta   GET 10.96.167.15:80    via 10.244.0.116:54866     status=200 verdict-at-gateway=allowed
+2026-10-08T14:21:14.150Z  actor=otel-alpha  GET 10.96.169.253:80   via 10.244.0.116:39138     status=200 verdict-at-gateway=allowed
+2026-10-08T14:21:14.206Z  actor=otel-beta   GET 10.96.167.15:80    via 10.244.0.116:54866     status=200 verdict-at-gateway=allowed
+2026-10-08T14:21:15.289Z  actor=otel-alpha  GET 10.96.169.253:80   via 10.244.0.116:39138     status=200 verdict-at-gateway=allowed
+2026-10-08T14:21:15.338Z  actor=otel-beta   GET 10.96.167.15:80    via 10.244.0.116:54866     status=200 verdict-at-gateway=allowed
+2026-10-08T14:21:16.413Z  actor=otel-alpha  GET 10.96.169.253:80   via 10.244.0.116:39138     status=200 verdict-at-gateway=allowed
+2026-10-08T14:21:16.481Z  actor=otel-beta   GET 10.96.167.15:80    via 10.244.0.116:54866     status=200 verdict-at-gateway=allowed

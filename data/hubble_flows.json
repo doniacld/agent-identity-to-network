@@ -1,0 +1,42 @@
+[
+  {
+    "time": "2026-10-08T10:00:01.120Z",
+    "source": {"pod_name": "atenet-egress-7d9", "namespace": "ate-system", "identity": "ate-system/atenet-egress"},
+    "destination": {"ip": "203.0.113.10", "port": 443, "fqdn": "api.openai.com"},
+    "l4": {"src_ip": "10.0.9.5", "src_port": 40001, "dst_ip": "203.0.113.10", "dst_port": 443, "proto": "TCP"},
+    "verdict": "FORWARDED",
+    "policy": "allow-llm-egress"
+  },
+  {
+    "time": "2026-10-08T10:00:02.330Z",
+    "source": {"pod_name": "atenet-egress-7d9", "namespace": "ate-system", "identity": "ate-system/atenet-egress"},
+    "destination": {"ip": "10.1.0.20", "port": 8200, "fqdn": "vault.internal"},
+    "l4": {"src_ip": "10.0.9.5", "src_port": 40002, "dst_ip": "10.1.0.20", "dst_port": 8200, "proto": "TCP"},
+    "verdict": "DROPPED",
+    "policy": "default-deny"
+  },
+  {
+    "time": "2026-10-08T10:00:03.040Z",
+    "source": {"pod_name": "atenet-egress-7d9", "namespace": "ate-system", "identity": "ate-system/atenet-egress"},
+    "destination": {"ip": "10.1.0.30", "port": 5432, "fqdn": "db.internal"},
+    "l4": {"src_ip": "10.0.9.5", "src_port": 40003, "dst_ip": "10.1.0.30", "dst_port": 5432, "proto": "TCP"},
+    "verdict": "FORWARDED",
+    "policy": "allow-db"
+  },
+  {
+    "time": "2026-10-08T10:00:04.520Z",
+    "source": {"pod_name": "atenet-egress-7d9", "namespace": "ate-system", "identity": "ate-system/atenet-egress"},
+    "destination": {"ip": "203.0.113.10", "port": 443, "fqdn": "api.openai.com"},
+    "l4": {"src_ip": "10.0.9.5", "src_port": 40004, "dst_ip": "203.0.113.10", "dst_port": 443, "proto": "TCP"},
+    "verdict": "FORWARDED",
+    "policy": "allow-llm-egress"
+  },
+  {
+    "time": "2026-10-08T10:00:05.930Z",
+    "source": {"pod_name": "atenet-egress-7d9", "namespace": "ate-system", "identity": "ate-system/atenet-egress"},
+    "destination": {"ip": "198.51.100.7", "port": 443, "fqdn": "evil.example.com"},
+    "l4": {"src_ip": "10.0.9.5", "src_port": 40005, "dst_ip": "198.51.100.7", "dst_port": 443, "proto": "TCP"},
+    "verdict": "DROPPED",
+    "policy": "default-deny"
+  }
+]

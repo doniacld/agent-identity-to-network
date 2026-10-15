@@ -1,0 +1,32 @@
+[
+  {
+    "time": "2026-10-08T10:00:01.100Z",
+    "actor":  {"name": "agent-alpha", "uid": "a1aaaa", "atespace": "demo"},
+    "worker": {"pod_uid": "P1", "pod_name": "counter-pool-abc", "slot": 0},
+    "conn":   {"src_ip": "10.0.9.5", "src_port": 40001, "dst_ip": "203.0.113.10", "dst_port": 443, "proto": "TCP", "authority": "api.openai.com"}
+  },
+  {
+    "time": "2026-10-08T10:00:02.300Z",
+    "actor":  {"name": "agent-alpha", "uid": "a1aaaa", "atespace": "demo"},
+    "worker": {"pod_uid": "P1", "pod_name": "counter-pool-abc", "slot": 0},
+    "conn":   {"src_ip": "10.0.9.5", "src_port": 40002, "dst_ip": "10.1.0.20", "dst_port": 8200, "proto": "TCP", "authority": "vault.internal"}
+  },
+  {
+    "time": "2026-10-08T10:00:03.000Z",
+    "actor":  {"name": "agent-beta", "uid": "b2bbbb", "atespace": "demo"},
+    "worker": {"pod_uid": "P1", "pod_name": "counter-pool-abc", "slot": 1},
+    "conn":   {"src_ip": "10.0.9.5", "src_port": 40003, "dst_ip": "10.1.0.30", "dst_port": 5432, "proto": "TCP", "authority": "db.internal"}
+  },
+  {
+    "time": "2026-10-08T10:00:04.500Z",
+    "actor":  {"name": "agent-gamma", "uid": "c3cccc", "atespace": "demo"},
+    "worker": {"pod_uid": "P2", "pod_name": "counter-pool-xyz", "slot": 0},
+    "conn":   {"src_ip": "10.0.9.5", "src_port": 40004, "dst_ip": "203.0.113.10", "dst_port": 443, "proto": "TCP", "authority": "api.openai.com"}
+  },
+  {
+    "time": "2026-10-08T10:00:05.900Z",
+    "actor":  {"name": "agent-gamma", "uid": "c3cccc", "atespace": "demo"},
+    "worker": {"pod_uid": "P2", "pod_name": "counter-pool-xyz", "slot": 0},
+    "conn":   {"src_ip": "10.0.9.5", "src_port": 40005, "dst_ip": "198.51.100.7", "dst_port": 443, "proto": "TCP", "authority": "evil.example.com"}
+  }
+]

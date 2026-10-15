@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#334155"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#15803d"/>
+    </marker>
+    <marker id="arrowAmber" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#b45309"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="980" height="620" fill="#ffffff"/>
+
+  <text x="30" y="40" font-size="22" font-weight="700" fill="#0f172a">Which agent talked to whom?</text>
+  <text x="30" y="64" font-size="14" fill="#475569">Re-attaching actor identity to a NAT'd network flow, by joining two signals on (5-tuple + time).</text>
+
+  <!-- Agents sharing a worker pod -->
+  <rect x="30" y="110" width="250" height="150" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="45" y="134" font-size="13" font-weight="700" fill="#334155">Worker pod (shared)</text>
+  <text x="45" y="152" font-size="11" fill="#64748b">many agents multiplexed onto one pod</text>
+
+  <rect x="48" y="166" width="100" height="36" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="98" y="189" font-size="12" font-weight="600" fill="#3730a3" text-anchor="middle">agent-alpha</text>
+
+  <rect x="162" y="166" width="100" height="36" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="212" y="189" font-size="12" font-weight="600" fill="#3730a3" text-anchor="middle">agent-beta</text>
+
+  <rect x="48" y="212" width="100" height="36" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="98" y="235" font-size="12" font-weight="600" fill="#3730a3" text-anchor="middle">agent-gamma</text>
+  <text x="172" y="235" font-size="11" fill="#64748b">each has a</text>
+  <text x="172" y="249" font-size="11" fill="#64748b">stable ate.* id</text>
+
+  <!-- Egress gateway -->
+  <rect x="360" y="150" width="180" height="70" rx="10" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="450" y="178" font-size="13" font-weight="700" fill="#854d0e" text-anchor="middle">atenet-egress</text>
+  <text x="450" y="197" font-size="11" fill="#854d0e" text-anchor="middle">SNAT: gwIP:gwPort</text>
+  <text x="450" y="211" font-size="11" fill="#a16207" text-anchor="middle">actor identity erased here</text>
+
+  <!-- External destinations -->
+  <rect x="640" y="110" width="290" height="150" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="655" y="134" font-size="13" font-weight="700" fill="#334155">External destinations</text>
+  <text x="665" y="162" font-size="12" fill="#15803d">api.openai.com:443</text>
+  <text x="820" y="162" font-size="11" font-weight="700" fill="#15803d">allow</text>
+  <text x="665" y="188" font-size="12" fill="#b45309">vault.internal:8200</text>
+  <text x="820" y="188" font-size="11" font-weight="700" fill="#b45309">DENY</text>
+  <text x="665" y="214" font-size="12" fill="#15803d">db.internal:5432</text>
+  <text x="820" y="214" font-size="11" font-weight="700" fill="#15803d">allow</text>
+  <text x="665" y="240" font-size="12" fill="#b45309">evil.example.com:443</text>
+  <text x="820" y="240" font-size="11" font-weight="700" fill="#b45309">DENY</text>
+
+  <!-- flows agents -> gateway -->
+  <line x1="280" y1="185" x2="356" y2="185" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="300" y="177" font-size="10" fill="#64748b">egress</text>
+
+  <!-- gateway -> external -->
+  <line x1="540" y1="185" x2="636" y2="185" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="548" y="177" font-size="10" fill="#64748b">real TCP</text>
+
+  <!-- SIGNAL 1: egress correlation record -->
+  <rect x="30" y="320" width="400" height="120" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="45" y="344" font-size="13" font-weight="700" fill="#3730a3">SIGNAL 1 &#183; egress correlation record</text>
+  <text x="45" y="362" font-size="11" fill="#4338ca">from atenet-egress, actor telemetry plane (NEW)</text>
+  <text x="45" y="388" font-size="12" fill="#1e293b">actor:   agent-alpha  (ate.actor.uid, worker pod/slot)</text>
+  <text x="45" y="408" font-size="12" fill="#1e293b">5-tuple: tcp 10.244.0.116:39138 &#8594; dst:443</text>
+  <text x="45" y="428" font-size="12" fill="#1e293b">time:    t0</text>
+
+  <!-- SIGNAL 2: hubble flow -->
+  <rect x="530" y="320" width="400" height="120" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="545" y="344" font-size="13" font-weight="700" fill="#155e75">SIGNAL 2 &#183; Hubble flow</text>
+  <text x="545" y="362" font-size="11" fill="#0e7490">from Hubble, read-only, unchanged</text>
+  <text x="545" y="388" font-size="12" fill="#1e293b">source:  atenet-egress  (agent unknown)</text>
+  <text x="545" y="408" font-size="12" fill="#1e293b">5-tuple: tcp 10.244.0.116:39138 &#8594; dst:443</text>
+  <text x="545" y="428" font-size="12" fill="#1e293b">verdict: FORWARDED   policy: allow-llm-egress</text>
+
+  <!-- JOIN -->
+  <line x1="230" y1="440" x2="430" y2="500" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <line x1="730" y1="440" x2="530" y2="500" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <rect x="330" y="500" width="300" height="92" rx="10" fill="#0f172a"/>
+  <text x="480" y="524" font-size="13" font-weight="700" fill="#f8fafc" text-anchor="middle">JOIN on (5-tuple + time)</text>
+  <text x="480" y="548" font-size="12" fill="#cbd5e1" text-anchor="middle">same connection, both signals agree</text>
+  <text x="480" y="574" font-size="13" font-weight="700" fill="#4ade80" text-anchor="middle">agent-alpha &#8594; api.openai.com:443  allow</text>
+
+  <text x="30" y="470" font-size="11" fill="#64748b">srcIP:srcPort is the gateway's post-SNAT socket, which is exactly what Hubble records as the flow source.</text>
+</svg>

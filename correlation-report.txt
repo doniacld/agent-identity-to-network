@@ -1,0 +1,24 @@
+====================================================================================================
+FULL CORRELATION:  the agent's OWN span joined to its network flow and Cilium verdict
+====================================================================================================
+
+●  otel-alpha
+   OTel (actor's own telemetry, #853-stamped):
+      identity : ate.actor.uid=bcac7cd7-0dda-46f5-bcac-34f26d147982  slot=0  plane=actor
+      instance : service.instance.id=845ed411-4b0d-401b-b8e6-a10e45a331de/0  (= worker-pod-uid/slot)
+      span     : agent.fetch  → http://10.96.169.253:80/   (5 fetches)
+      traces   : 45de33d74370, 4f444dfc3aa9, 64433df7a78a, edebc152c253, f08ff4f7ab20
+   Network (egress record ⋈ Hubble flow):
+      egress → 10.96.169.253:80   src 10.244.0.116:39138     Hubble → egress-target/whoami-a-8484675c6c-n7dz8    [FORWARDED]
+   ⇒ agent otel-alpha fetched http://10.96.169.253:80/, confirmed on the wire via gateway 10.244.0.116:39138
+
+●  otel-beta
+   OTel (actor's own telemetry, #853-stamped):
+      identity : ate.actor.uid=dd28f6a4-d6d3-4ce9-aeee-67c5a60be209  slot=0  plane=actor
+      instance : service.instance.id=099474e0-14d8-4cba-8de6-6835005edb9e/0  (= worker-pod-uid/slot)
+      span     : agent.fetch  → http://10.96.167.15:80/   (5 fetches)
+      traces   : 101058f3f122, 86ba10b1b491, bb922a0edb98, cccec1ea7322, d8ee97f9b5b0
+   Network (egress record ⋈ Hubble flow):
+      egress → 10.96.167.15:80    src 10.244.0.116:54866     Hubble → egress-target/whoami-b-66978859c4-knvls    [FORWARDED]
+   ⇒ agent otel-beta fetched http://10.96.167.15:80/, confirmed on the wire via gateway 10.244.0.116:54866
+

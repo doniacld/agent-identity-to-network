@@ -1,0 +1,8 @@
+# Go
+/agent-identity-to-network
+*.test
+*.out
+# Editors
+.idea/
+.vscode/
+.DS_Store

@@ -1,0 +1,4 @@
+GATEWAY SOURCE         -> DEST (pod)                            DEST IP              VERDICT
+----------------------------------------------------------------------------------------------------
+10.244.0.116:39138     -> egress-target/whoami-a-8484675c6c-n7dz8 10.244.0.215:80      FORWARDED   (no CiliumNetworkPolicy → default allow)
+10.244.0.116:54866     -> egress-target/whoami-b-66978859c4-knvls 10.244.0.124:80      FORWARDED   (no CiliumNetworkPolicy → default allow)
